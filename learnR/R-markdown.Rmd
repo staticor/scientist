@@ -1,0 +1,41 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+
+```{r}
+# Setup
+options(scipen=999)  # turn off scientific notation like 1e+06
+library(ggplot2)
+# load the data
+data("midwest", package = "ggplot2")  
+# midwest <- read.csv("http://goo.gl/G1K41K") # alt source 
+
+# Init Ggplot
+ggplot(midwest, aes(x=area, y=poptotal))  # area and poptotal are columns in 'midwest'
+library(ggplot2)
+
+qplot(price, data=diamonds, geom="density")
+
+ggplot(midwest, aes(x=area, y=poptotal), color=county) + geom_point()
+
+g <- ggplot(midwest, aes(x=area, y=poptotal)) + geom_point() + geom_smooth(method="lm")
+g
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+```{bash}
+ls
+```
+
+```{r}
+head(midwest)
+```
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
