@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Python strftime reference</title>
+    <link rel="stylesheet" href="edify.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="python, strftime, reference">
+    <meta name="description" content="A quick reference for Python's strftime formatting directives.">
+    <meta name="author" content="@mccutchen">
+    <meta name="google-site-verification" content="S-bbcTBTJoPolBdOfvPhpJM-X3gxGVAcEXsuP6DvQq0">
+  </head>
+
+  <body>
+    <h1>Python's <code>strftime</code> directives</h1>
+
+    <p class="example"><strong>Note:</strong> Examples are based on
+      <code>{{example_date_repr}}</code>
+    </p>
+
+    <div class="reference">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <colgroup>
+          <col id="directive">
+          <col id="meaning">
+          <col id="example">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>Meaning</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#directives}}
+            <tr>
+              <td><code>{{directive}}</code></td>
+              <td>{{meaning}}</td>
+              <td><code>{{example}}</code></td>
+            </tr>
+          {{/directives}}
+        </tbody>
+      </table>
+    </div>
+
+    <p class="source"><strong>Source:</strong>
+      <a href="http://www.python.org/">Python</a>&#8217;s
+      <code><a href="http://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior" target="_blank">strftime</a></code>
+      documentation.
+    </p>
+
+    <a name="platforms"></a>
+    <p class="platforms"><strong>Platform specific directives:</strong>
+      The full set of format codes supported varies across platforms, because Python calls the platform C library's strftime() function, and platform variations are common. To see the full set of format codes supported on your platform, consult the <a href="http://man7.org/linux/man-pages/man3/strftime.3.html" target="_blank"><code>strftime(3)</code> documentation</a>.
+      <br />
+      <br />
+      The Python docs contain all the format codes that the C standard (1989 version) requires, and these work on all platforms with a standard C implementation. Note that the 1999 version of the C standard added additional format codes. These include codes for non-zero-padded numbers, that can be obtained by appending a dash (-) after the percent (%) sign.
+    </p>
+
+    <p class="explanation"><strong>Why?</strong> I need to use
+      Python&#8217;s <code>strftime</code> rarely enough that I can&#8217;t
+      remember it off the top of my head and never bookmark it but often
+      enough to be annoyed with having to Google &#8220;python strftime&#8221;
+      and then find the table above in the Python documentation.  So I decided
+      to put this reference page up.</p>
+
+    <p class="who"><strong>Who?</strong> This was slapped together on a whim
+      by <a href="https://twitter.com/mccutchen" target="_blank">Will McCutchen</a>, who is
+      just slouching on the shoulders of the awesome
+      <a href="http://docs.python.org/2/about.html" target="_blank">Python documentation team</a>.
+      The source code is <a href="https://github.com/mccutchen/strftime.org" target="_blank">on Github</a>
+      and pull requests are welcome!</p>
+
+    <p class="when"><strong>When?</strong> Last updated {{timestamp}}.</p>
+
+    <p class="whatelse"><strong>What else?</strong>
+      You might also like <a href="https://pyformat.info/" target="_blank">PyFormat</a>
+      by <a href="https://twitter.com/ulope" target="_blank">Ulrich Petri</a>
+      and <a href="https://zerokspot.com/weblog/" target="_blank">Horst Gutmann</a>.</p>
+
+    <a href="https://github.com/mccutchen/strftime.org" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-2498192-11']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
