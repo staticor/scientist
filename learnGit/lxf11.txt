@@ -1,0 +1,26 @@
+lxf11.txt 标签
+
+创建标签
+
+git branch
+
+git checkout master
+
+
+git tag v1.0
+git tag 查看标签
+
+指定 commit id 进行打标签
+	git tag v0.9 6224937
+
+	git tag
+
+标签显示是按照字典排序的
+
+git show 标签名
+显示信息
+
+
+创建有说明的标签
+git tag - a v0.1 -m "version0.1 released"  commit-id
+

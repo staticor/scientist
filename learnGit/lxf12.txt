@@ -1,0 +1,74 @@
+lxf12.txt
+
+自定义Git
+
+
+git config user.name,  user.email 是刚开始就要配置的参数.
+
+
+其它呢?
+
+#　颜色
+git config --global color.ui true
+
+
+# 忽略特殊文件
+
+有些时候，你必须把某些文件放到Git工作目录中，但又不能提交它们，比如保存了数据库密码的配置文件啦，等等，每次git status都会显示“Untracked files ...”，有强迫症的童鞋心里肯定不爽。
+
+好在Git考虑到了大家的感受，这个问题解决起来也很简单，在Git工作区的根目录下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。
+
+不需要从头写.gitignore文件，GitHub已经为我们准备了各种配置文件，只需要组合一下就可以使用了。所有配置文件可以直接在线浏览：https://github.com/github/gitignore
+
+
+举个例子：
+
+假设你在Windows下进行Python开发，Windows会自动在有图片的目录下生成隐藏的缩略图文件，如果有自定义目录，目录下就会有Desktop.ini文件，因此你需要忽略Windows自动生成的垃圾文件：
+
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+
+
+
+然后，继续忽略Python编译产生的.pyc、.pyo、dist等文件或目录：
+
+# Python:
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
+
+
+加上你自己定义的文件，最终得到一个完整的.gitignore文件，内容如下：
+
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Python:
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
+
+# My configurations:
+db.ini
+deploy_key_rsa
+
+
+最后一步就是把.gitignore也提交到Git，就完成了！当然检验.gitignore的标准是git status命令是不是说“working directory clean”。
+
+使用Windows的童鞋注意了，如果你在资源管理器里新建一个.gitignore文件，它会非常弱智地提示你必须输入文件名，但是在文本编辑器里“保存”或者“另存为”就可以把文件保存为.gitignore了。
+
+
+忽略某些文件时，需要编写.gitignore；
+
+.gitignore文件本身要放到版本库里，并且可以对.gitignore做版本管理

@@ -1,0 +1,49 @@
+lxf08.txt
+分支管理策略
+
+合并时 Git会用(尽量采用) Fast forward 模式, 这种模式 删除分支后会丢掉分支的信息
+
+若要强制禁用Fast forward ,Git在merge时生成一个新的commit,
+
+实战一个--no--ff 方式的git merge
+
+1 创建 切找到dev
+git checkout -b dev
+
+在 dev 做修改,  然后 commit
+
+2 切找回 master ,  进行merge
+
+$ git merge --no-ff -m "merge with no-ff" dev
+表示禁用 fast forward
+因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。
+
+*   1324124 merge with dev, no-ff
+|\
+| * 1ec3f7b add 08txt in dev.
+|/
+* 4788519 rm 005 006
+* 9cf8849 rename 050607, and update
+*   a1cdefc  fixed conflict
+|\
+| * 092e4ba an modified of readme in feature1
+* | b4c0f5c modified last line in master branch
+|/
+* c6cfe8f 006 modified
+* ad7d373 add lxf00
+* 77751a3 add lxf05.txt
+*   e292222 Merge commit 'b870fbb83c14c3a81020c32ad71e322aadebeef2'
+|\
+| * b870fbb Update lxf02.txt
+* | 3d05ffd add a python file
+* | 18806f0 add lxf04
+* | ff9b9da append lxf03
+* | b51572e lxf 03 , append relog .
+|/
+* 8a05b90 add lxf 03
+
+小结
+
+Git分支十分强大，在团队开发中应该充分应用。
+
+合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。
